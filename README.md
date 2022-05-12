@@ -21,4 +21,4 @@ Tkinter is used for the GUI, and Matplotlib is used to plot the charts.
 ## Pricing data formats
 This program was designed using csv files that contain daily price data from yahoo finance, like the ones that can be downloaded here for example: https://finance.yahoo.com/quote/BTC-USD/history/
 
-As dataframes are used, any csv that has the same column headings should work. The column headings used are: High, Low, Open, Close
+As dataframes are used, any csv that has the same column headings should work. The column headings used are: Date, High, Low, Open, Close
