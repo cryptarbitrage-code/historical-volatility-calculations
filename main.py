@@ -1,6 +1,5 @@
 from tkinter import *
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, NavigationToolbar2Tk)
@@ -30,6 +29,7 @@ vol_7_day_checkbox.grid(row=1, column=0, padx=2, pady=2, sticky=W)
 vol_30_day_checked = IntVar()
 vol_30_day_checkbox = Checkbutton(details_frame, text='30D', variable=vol_30_day_checked)
 vol_30_day_checkbox.grid(row=1, column=1, padx=2, pady=2, sticky=W)
+vol_30_day_checkbox.select()  # selected by default
 vol_60_day_checked = IntVar()
 vol_60_day_checkbox = Checkbutton(details_frame, text='60D', variable=vol_60_day_checked)
 vol_60_day_checkbox.grid(row=2, column=0, padx=2, pady=2, sticky=W)
@@ -42,13 +42,14 @@ vol_180_day_checkbox.grid(row=3, column=0, padx=2, pady=2, sticky=W)
 park_vol_label = Label(details_frame, text="Parkinson Vol Comparison", font=('Arial', 9, 'bold', 'underline'))
 park_vol_label.grid(row=4, column=0, columnspan=2, padx=2, pady=5)
 selected_period = StringVar()
-selected_period.set("7D")
+selected_period.set("30D")
 period_dropdown = OptionMenu(details_frame, selected_period, "7D", "30D", "60D", "90D", "180D")
 period_dropdown.grid(row=5, column=0)
 period_dropdown.config(width=10)
 include_price_checked = IntVar()
 include_price_checkbox = Checkbutton(details_frame, text='Include Underlying Price', variable=include_price_checked)
 include_price_checkbox.grid(row=6, column=0, columnspan=2, padx=2, pady=2, sticky=W)
+include_price_checkbox.select()  # selected by default
 
 # Chart frames
 chart1_frame = LabelFrame(root, text="Historical Volatility", padx=2, pady=2)
@@ -66,6 +67,8 @@ print(df)
 
 
 def plot_charts():
+    # Clears any current charts, then plots all charts using selected parameters
+
     # Destroy old charts if any
     for widgets in chart1_frame.winfo_children():
         widgets.destroy()
@@ -155,6 +158,9 @@ def plot_charts():
 
     plt.show()
 
+
+# plot default charts on program launch
+plot_charts()
 
 # button that displays the plot
 plot_button = Button(master=details_frame,
