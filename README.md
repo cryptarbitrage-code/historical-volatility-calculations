@@ -1,5 +1,6 @@
 # Historical Volatility Calculations
 Python code that uses historical price data to calculate and display historical volatility (close to close and Parkinson).
+The csv file path/name is currently hard coded to data/BTC-USD.csv. You will need to edit this (or rename the file you want to use) in order to use different csv files.
 
 <img src="images/1-overview.JPG">
 
