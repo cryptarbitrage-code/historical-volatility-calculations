@@ -56,8 +56,6 @@ chart1_frame = LabelFrame(root, text="Historical Volatility", padx=2, pady=2)
 chart1_frame.grid(row=0, column=1, rowspan=2, padx=2, pady=2)
 chart2_frame = LabelFrame(root, text="Parkinson Vol Comparison", padx=2, pady=2)
 chart2_frame.grid(row=2, column=1, padx=2, pady=2)
-chart3_frame = LabelFrame(root, text="Underlying Price", padx=2, pady=2)
-chart3_frame.grid(row=3, column=1, padx=2, pady=2)
 
 # read in the price data from csv
 df = pd.read_csv('data/BTC-USD.csv')
